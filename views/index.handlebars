@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="container text-center">
+        <h1 id="top">It's Burger time!</h1>
+        <hr>
+        <img class="img-responsive" src="/assets/img/burger.jpg" alt="Burger">
+    </div>
+    <hr> 
+    
+    <form class="create-form">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group text-center">
+                    <h3>Add a Burger</h3>
+                    <label for="new-burger">New Burger Name:</label>
+                    <input type="text" id="new-burger" name="name">
+                    <input id="submit" class="btn btn-outline-secondary" type="submit" value="Submit Burger">
+                </div>
+            </div>  
+        </div>
+    </form>
+    <hr>
+    <div class="row">
+        <div class="col-md-6 line">
+            <h3>Burgers to Eat List</h3>
+            <br>
+            {{#each burger}} 
+                {{#unless devoured}} 
+                <button class="btn btn-outline-light devour-btn" data-id="{{this.id}}">DEVOUR!!</button>
+                a {{ burger_name }} by {{!--<input type="text" id="customer-{{this.id}}" placeholder="Customer Name">--}}<br>
+            {{/unless}} 
+            {{/each}}
+        </div>
+        <div class="col-md-6 text-right">
+            <h3>Devoured Burgers</h3>
+            
+                {{#each burger}} 
+                    {{#if devoured}} 
+                        {{ burger_name }} {{!--(eaten by {{this.Customer.customer_name}}--}}<br>
+                    {{/if}} 
+                {{/each}}
+        </div>
+    </div>
+    <hr>
+</div>
+
+<footer class="text-center">
+    Copyright &copy; Sam Elsola
+</footer>
+<br>
